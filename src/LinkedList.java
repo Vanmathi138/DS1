@@ -15,12 +15,30 @@ public class LinkedList {
 
         head = pop(head);
 
+        head = popLast(head);
+
         while (head!=null){
             System.out.print(head.data+" ");
             head = head.next;
         }
 
     }
+
+    private static Node popLast(Node head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        Node current = head;
+        while (current.next.next != null) {
+            current = current.next;
+        }
+
+        current.next = null;
+        return head;
+    }
+
+
     private static Node pop(Node head) {
         if (head==null){
             return null;
