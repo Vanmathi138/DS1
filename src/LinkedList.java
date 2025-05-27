@@ -13,7 +13,9 @@ public class LinkedList {
         head.next = new Node(30);
         head.next.next = new Node(70);
 
-        head = deleteFirst(head);
+        head = pop(head);
+
+        head = popLast(head);
 
         while (head!=null){
             System.out.print(head.data+" ");
@@ -21,7 +23,23 @@ public class LinkedList {
         }
 
     }
-    private static Node deleteFirst(Node head) {
+
+    private static Node popLast(Node head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        Node current = head;
+        while (current.next.next != null) {
+            current = current.next;
+        }
+
+        current.next = null;
+        return head;
+    }
+
+
+    private static Node pop(Node head) {
         if (head==null){
             return null;
         }
