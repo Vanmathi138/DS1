@@ -10,17 +10,22 @@ class Node{
 public class LinkedList {
     public static void main(String[] args) {
         Node head = new Node(56);
-        head.next = new Node(70);
+        head.next = new Node(30);
+        head.next.next = new Node(70);
 
-
-        Node newNode = new Node(30);
-        newNode.next = head.next;
-        head.next = newNode;
+        head = deleteFirst(head);
 
         while (head!=null){
             System.out.print(head.data+" ");
             head = head.next;
         }
 
+    }
+    private static Node deleteFirst(Node head) {
+        if (head==null){
+            return null;
+        }
+
+        return head.next;
     }
 }
