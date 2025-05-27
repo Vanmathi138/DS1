@@ -13,7 +13,7 @@ public class LinkedList {
         head.next = new Node(30);
         head.next.next = new Node(70);
 
-        head = deleteFirst(head);
+        head = pop(head);
 
         while (head!=null){
             System.out.print(head.data+" ");
@@ -21,7 +21,7 @@ public class LinkedList {
         }
 
     }
-    private static Node deleteFirst(Node head) {
+    private static Node pop(Node head) {
         if (head==null){
             return null;
         }
