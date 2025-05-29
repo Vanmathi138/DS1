@@ -1,4 +1,5 @@
 package org.example;
+
 class Node{
     int data;
     Node next;
@@ -9,7 +10,34 @@ class Node{
     }
 }
 public class LinkedList {
+    Node head;
+    public void add(int data){
+        Node newNode = new Node(data);
+        if(head==null){
+            head=newNode;
+            return;
+        }
+        Node current = head;
+        while (current.next!=null){
+            current = current.next;
+        }
+        current.next =newNode;
+    }
+
+    public boolean search(int key){
+        Node c = head;
+        while (c!=null){
+            if (c.data==key){
+                return true;
+            }
+            c=c.next;
+        }
+        return false;
+    }
+
+
     public static void main(String[] args) {
+
         Node head = new Node(56);
         head.next = new Node(30);
         head.next.next = new Node(70);
@@ -48,3 +76,4 @@ public class LinkedList {
         return head.next;
     }
 }
+
