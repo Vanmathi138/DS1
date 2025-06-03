@@ -1,14 +1,5 @@
 package org.example;
 
-class Node{
-    int data;
-    Node next;
-
-    Node(int data){
-        this.data = data;
-        this.next = null;
-    }
-}
 public class LinkedList {
     Node head;
     public void add(int data){
@@ -31,6 +22,18 @@ public class LinkedList {
                 return true;
             }
             c=c.next;
+        }
+        return false;
+    }
+    public boolean insert(int key, Node newNode) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == key) {
+                newNode.next = current.next;
+                current.next = newNode;
+                return true;
+            }
+            current = current.next;
         }
         return false;
     }
@@ -75,5 +78,20 @@ public class LinkedList {
 
         return head.next;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node current = head;
+        while (current != null) {
+            sb.append(current.data);
+            if (current.next != null) {
+                sb.append(" -> ");
+            }
+            current = current.next;
+        }
+        return sb.toString();
+    }
+
 }
 
