@@ -37,13 +37,42 @@ public class LinkedList {
         }
         return false;
     }
+    public boolean removeElement(int key){
+        if(head == null){
+            return false;
+        }
+        if(head.data == key){
+            head = head.next;
+            return true;
+        }
+        Node current = head;
 
+        while (current.next!=null){
+            if(current.next.data==key){
+                current.next = current.next.next;
+                return  true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+    public int size(){
+        if(head==null) return 0;
+        int count=0;
+        Node current = head;
+        while (current!=null){
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
 
     public static void main(String[] args) {
 
         Node head = new Node(56);
         head.next = new Node(30);
-        head.next.next = new Node(70);
+        head.next.next = new Node(40);
+        head.next.next.next = new Node(70);
 
         head = pop(head);
 
